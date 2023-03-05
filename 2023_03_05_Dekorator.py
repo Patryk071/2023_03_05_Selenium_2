@@ -48,6 +48,15 @@ class KontoBankowe:
     def stan(self, o_ile):
         self.__stan = self.__stan + o_ile
 
+    @stan.getter
+    def stan(self):
+        return self.__stan
+
+    @stan.deleter
+    def stan(self):
+        return self.__stan
+
+
 moje_konto = KontoBankowe()
 moje_konto.stan = 50
 print(moje_konto.stan)
