@@ -6,7 +6,7 @@ import time
 
 driver = webdriver.Chrome()
 driver.get("https://www.w3schools.com/")
-time.sleep(5)
+time.sleep(10)
 
 #driver.set_window_size(1200, 1000)
 driver.maximize_window()
@@ -41,9 +41,16 @@ for window in windowNames:
 print(driver.title)
 driver.find_element('xpath', '//*[@id="runbtn"]').click()
 
-time.sleep(500)
+firstName = driver.find_element("id", "fname")
+
+if firstName.is_enabled():
+    firstName.send_keys("Kleopatra")
+else:
+    print("Nie da się wpisać tekstu")
+
+firstName.clear()
+
+#driver.find_element("id", "fname").send_keys("Natalia")
+
+time.sleep(15)
 driver.close()
-
-
-
-
